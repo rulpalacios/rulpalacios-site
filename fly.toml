@@ -1,4 +1,4 @@
-# fly.toml file generated for rulpalacios on 2023-02-07T14:36:38-06:00
+# fly.toml file generated for rulpalacios on 2023-02-07T22:08:24-06:00
 
 app = "rulpalacios"
 kill_signal = "SIGINT"
