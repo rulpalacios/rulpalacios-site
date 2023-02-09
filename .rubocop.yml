@@ -1,0 +1,28 @@
+inherit_from: .rubocop_todo.yml
+require: 
+  - rubocop-minitest
+  - rubocop-rails
+  - rubocop-performance
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 3.2.0
+  Exclude:
+    - 'bin/**/*'
+    - 'bin/bundle'
+    - 'db/**/*.rb'
+    - 'node_modules/**/*'
+    - 'vendor/**/*'
+    - 'log/**/*'
+
+
+Style/Documentation:
+  Enabled: false
+
+Layout/HashAlignment:
+  Enabled: false
+
+Minitest/TestMethodName:
+  Enabled: false
+
+Metrics/AbcSize:
+  Max: 115
