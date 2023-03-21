@@ -1,0 +1,27 @@
+# == Schema Information
+#
+# Table name: courses
+#
+#  id          :bigint           not null, primary key
+#  cost        :float
+#  course_type :integer
+#  description :text
+#  status      :integer
+#  title       :string
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+one:
+  title: MyString
+  description: MyText
+  status: 1
+  course_type: 1
+  cost: 1.5
+
+two:
+  title: MyString
+  description: MyText
+  status: 1
+  course_type: 1
+  cost: 1.5

@@ -1,0 +1,102 @@
+<%= form_for @course do |form| %>
+  <div class="mt-10 mx-6 md:mx-12 sm:mt-12 ">
+    <div class="md:grid md:grid-cols-3 md:gap-6">
+      <div class="md:col-span-1">
+        <div class="px-1 sm:px-0">
+          <h3 class="text-lg font-medium leading-6 text-gray-900">Sobre la formación</h3>
+          <p class="mt-1 text-sm text-gray-600">
+            Información básica de la formación.
+          </p>
+        </div>
+      </div>
+      <div class="mt-5 md:mt-0 md:col-span-2">     
+        <div class="shadow overflow-hidden sm:rounded-md">
+          <div class="px-4 py-5 bg-white sm:p-6">
+            <div class="grid grid-cols-6 gap-6">
+              <div class="col-span-6 sm:col-span-6">
+                <%= form.label(:title, class: 'block text-sm  font-medium text-gray-700') %>
+                <%= form.text_field(:title, class: 'mt-1 pl-3 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-300 h-9 rounded-md') %>
+              </div>
+              <div class="col-span-6 sm:col-span-6">
+                <%= form.label(:cost, class: 'block text-sm  font-medium text-gray-700') %>
+                <%= form.text_field(:cost, class: 'mt-1 pl-3 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-300 h-9 rounded-md') %>
+              </div>
+              <div class="col-span-6">
+                <%= form.label(:description, class: 'block text-sm font-medium text-gray-700') %>
+                <%= form.text_area(:description, rows: 3, class: 'shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md p-3') %>
+                <p class="mt-2 text-sm text-gray-500">
+                  Cuéntanos un poco sobre este curso y sus objetivos.
+                </p>
+              </div>
+
+              <div class="col-span-6">
+                <label class="block text-sm font-medium text-gray-700">
+                  Foto de portada del evento
+                </label>
+                <div class="mt-1 flex items-center">
+                  
+                </div>
+                <p class="mt-2 text-sm text-gray-500">
+                  Sube archivo en formato .jpg o .png (recomendamos descargarla de unsplash.com)
+                </p>
+              </div>
+
+              <div class="col-span-2">
+                <%= form.label(:status, class: 'block text-sm  font-medium text-gray-700')%>
+                <%= form.select(:status, options_for_select([['draft'], ['premiere'], ['published']], @course.status), {:include_blank => 'Selecciona'}, {:class => 'mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'})%>
+              </div>
+
+              <div class="col-span-2">
+                <%= form.label(:course_type, class: 'block text-sm  font-medium text-gray-700')%>
+                <%= form.select(:course_type, options_for_select([['free'], ['premium']], @course.course_type), {:include_blank => 'Selecciona'}, {:class => 'mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'})%>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+   <div class="sm:block" aria-hidden="true">
+    <div class="py-10 mx-8 md:mx-12">
+      <div class="border-t border-gray-200"></div>
+    </div>
+  </div>
+  <div class="mt-2 sm:mt-10 sm:mt-12 mx-6 md:mx-12">
+    <div class="md:grid md:grid-cols-3 md:gap-6">
+      <div class="md:col-span-1">
+        <div class="px-1 sm:px-0">
+          <h3 class="text-lg font-medium leading-6 text-gray-900">Lecciones</h3>
+          <p class="mt-1 text-sm text-gray-600">
+            Módulos de aprendizaje y contenidos de cada módulo
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-5 md:mt-0 md:col-span-2" data-controller="nested-form">
+        <div data-nested-form-target="add_item" class="flex justify-end">
+          <%= link_to '#', data: {action: 'nested-form#add_association'} ,class: 'inline-flex items-center px-3 py-2 border border-transparent tracking-wide  text-sm leading-4 font-semibold rounded-full text-blue-800  hover:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-700' do %>
+            <svg xmlns="http://www.w3.org/2000/svg" class="-ml-1 mr-2 h-5 w-5" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Agregar Lección
+          <% end %>
+        </div>
+        <template data-nested-form-target='template'>
+          <%= form.fields_for :lessons, Lesson.new, child_index: 'TEMPLATE_RECORD' do |lesson|%>
+            <%= render 'lessons_fields', form: lesson %>
+          <% end %>
+        </template>
+
+        <%= form.fields_for :lessons do |lesson|%>
+          <%= render 'lessons_fields', form: lesson %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+    <div class="mt-1 sm:pt-4 flex justify-end pb-12 mx-6 sm:mx-12">
+      <%= form.submit 'Guardar', class: 'ml-3 inline-flex justify-center py-2 px-12 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-500 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500' %>
+    </div>
+<% end %>
