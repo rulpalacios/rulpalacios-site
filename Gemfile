@@ -15,8 +15,8 @@ gem 'omniauth'
 gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
 gem 'omniauth-rails_csrf_protection'
 gem 'pg', '~> 1.1'
-gem 'puma', '~> 5.0'
-gem 'rails', '~> 7.0.4', '>= 7.0.4.2'
+gem 'puma', '~> 6.4'
+gem 'rails', "~> 7.1.0", '>= 7.0.4.2'
 gem 'sprockets-rails'
 gem 'stimulus-rails'
 gem 'turbo-rails'
@@ -38,6 +38,7 @@ end
 
 group :test do
   gem 'capybara'
+  gem 'minitest', '< 6'
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
