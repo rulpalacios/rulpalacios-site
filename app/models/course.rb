@@ -14,8 +14,8 @@
 class Course < ApplicationRecord
   has_many :lessons, dependent: :destroy
 
-  enum course_type: %i[free premium].freeze
-  enum status: %i[draft premiere published].freeze
+  enum :course_type, %i[free premium]
+  enum :status, %i[draft premiere published]
 
   accepts_nested_attributes_for :lessons, allow_destroy: true
 end
