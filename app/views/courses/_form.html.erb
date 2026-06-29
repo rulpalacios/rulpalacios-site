@@ -10,7 +10,7 @@
         </div>
       </div>
       <div class="mt-5 md:mt-0 md:col-span-2">     
-        <div class="shadow overflow-hidden sm:rounded-md">
+        <div class="shadow-sm overflow-hidden sm:rounded-md">
           <div class="px-4 py-5 bg-white sm:p-6">
             <div class="grid grid-cols-6 gap-6">
               <div class="col-span-6 sm:col-span-6">
@@ -23,7 +23,7 @@
               </div>
               <div class="col-span-6">
                 <%= form.label(:description, class: 'block text-sm font-medium text-gray-700') %>
-                <%= form.text_area(:description, rows: 3, class: 'shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md p-3') %>
+                <%= form.text_area(:description, rows: 3, class: 'shadow-xs focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md p-3') %>
                 <p class="mt-2 text-sm text-gray-500">
                   Cuéntanos un poco sobre este curso y sus objetivos.
                 </p>
@@ -43,12 +43,12 @@
 
               <div class="col-span-2">
                 <%= form.label(:status, class: 'block text-sm  font-medium text-gray-700')%>
-                <%= form.select(:status, options_for_select([['draft'], ['premiere'], ['published']], @course.status), {:include_blank => 'Selecciona'}, {:class => 'mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'})%>
+                <%= form.select(:status, options_for_select([['draft'], ['premiere'], ['published']], @course.status), {:include_blank => 'Selecciona'}, {:class => 'mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-xs focus:outline-hidden focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'})%>
               </div>
 
               <div class="col-span-2">
                 <%= form.label(:course_type, class: 'block text-sm  font-medium text-gray-700')%>
-                <%= form.select(:course_type, options_for_select([['free'], ['premium']], @course.course_type), {:include_blank => 'Selecciona'}, {:class => 'mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'})%>
+                <%= form.select(:course_type, options_for_select([['free'], ['premium']], @course.course_type), {:include_blank => 'Selecciona'}, {:class => 'mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-xs focus:outline-hidden focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'})%>
               </div>
             </div>
           </div>
@@ -74,7 +74,7 @@
 
       <div class="mt-5 md:mt-0 md:col-span-2" data-controller="nested-form">
         <div data-nested-form-target="add_item" class="flex justify-end">
-          <%= link_to '#', data: {action: 'nested-form#add_association'} ,class: 'inline-flex items-center px-3 py-2 border border-transparent tracking-wide  text-sm leading-4 font-semibold rounded-full text-blue-800  hover:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-700' do %>
+          <%= link_to '#', data: {action: 'nested-form#add_association'} ,class: 'inline-flex items-center px-3 py-2 border border-transparent tracking-wide  text-sm leading-4 font-semibold rounded-full text-blue-800  hover:bg-white focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-700' do %>
             <svg xmlns="http://www.w3.org/2000/svg" class="-ml-1 mr-2 h-5 w-5" fill="none" viewBox="0 0 24 24"
               stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -97,6 +97,6 @@
   </div>
 
     <div class="mt-1 sm:pt-4 flex justify-end pb-12 mx-6 sm:mx-12">
-      <%= form.submit 'Guardar', class: 'ml-3 inline-flex justify-center py-2 px-12 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-500 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500' %>
+      <%= form.submit 'Guardar', class: 'ml-3 inline-flex justify-center py-2 px-12 border border-transparent shadow-xs text-sm font-medium rounded-md text-white bg-red-500 hover:bg-red-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-red-500' %>
     </div>
 <% end %>

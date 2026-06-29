@@ -8,6 +8,7 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <%= yield :head if content_for?(:head) %>
   </head>
 
   <body class="flex h-full flex-col bg-zinc-50 dark:bg-black" data-controller="dark-mode">

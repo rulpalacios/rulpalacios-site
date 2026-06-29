@@ -1,0 +1,203 @@
+<% content_for :head do %>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    body { background: #131316 !important; }
+    .cin-thumb-img { transition: transform .6s cubic-bezier(.2,.6,.2,1); }
+    .cin-card:hover .cin-thumb-img { transform: scale(1.06); }
+    .cin-hero-thumb:hover .cin-thumb-img { transform: scale(1.05); }
+    .cin-card:hover .cin-card-wrap { border-color: rgba(255,255,255,0.22); transform: translateY(-3px); }
+    .cin-btn-primary:hover { filter: brightness(1.08); transform: translateY(-1px); }
+    .cin-btn-secondary:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.3); }
+    .cin-viewall:hover { color: #f2f1ee; }
+    @media (max-width: 860px) {
+      .cin-hero-grid { grid-template-columns: 1fr !important; }
+      .cin-hero-thumb-col { order: -1; }
+      .cin-container { padding-left: 20px !important; padding-right: 20px !important; }
+    }
+  </style>
+<% end %>
+
+<%
+  featured = {
+    eyebrow:  "Rails",
+    label:    "RAILS FUNDAMENTAL",
+    title:    "Rails Fundamental",
+    desc:     "Aprende Ruby on Rails desde cero: MVC, ActiveRecord, rutas, autenticación y despliegue de aplicaciones web completas.",
+    category: "Backend",
+    count:    18,
+    duration: "4h 30m",
+    host:     "Raúl Palacios",
+    poster:   "https://i.ytimg.com/vi/6PwIA6Ac9sU/maxresdefault.jpg",
+    url:      "https://www.youtube.com/playlist?list=PLIddmSRJEJ0uhR17K9V8r6ghnIprfMm80"
+  }
+
+  playlists = [
+    {
+      title:    "Cursos de ReactJS",
+      category: "Frontend",
+      count:    24,
+      duration: "6h 10m",
+      label:    "REACTJS",
+      poster:   "https://i.ytimg.com/vi/yFAIMEupsuo/maxresdefault.jpg",
+      progress: 0,
+      url:      "https://www.youtube.com/playlist?list=PLIddmSRJEJ0vEBB6ECegg35IQ-sWjSDdo"
+    },
+    {
+      title:    "Asincronismo en JavaScript",
+      category: "JavaScript",
+      count:    12,
+      duration: "2h 45m",
+      label:    "JAVASCRIPT",
+      poster:   "https://i.ytimg.com/vi/P2KaMpErAwk/maxresdefault.jpg",
+      progress: 0,
+      url:      "https://www.youtube.com/playlist?list=PLIddmSRJEJ0vt_Q-cKBDYk523xabDsSFe"
+    },
+    {
+      title:    "Fundamentos Ruby",
+      category: "Backend",
+      count:    15,
+      duration: "3h 20m",
+      label:    "RUBY",
+      poster:   "https://i.ytimg.com/vi/SVC7vLNR9jU/maxresdefault.jpg",
+      progress: 0,
+      url:      "https://www.youtube.com/playlist?list=PLIddmSRJEJ0vqXQG03e-WtOGsW63fI8ld"
+    },
+    {
+      title:    "Curso de Jest",
+      category: "Testing",
+      count:    10,
+      duration: "2h 15m",
+      label:    "JEST",
+      poster:   "https://i.ytimg.com/vi/lPAe1N0GsFM/maxresdefault.jpg",
+      progress: 0,
+      url:      "https://www.youtube.com/playlist?list=PLIddmSRJEJ0s3cxl5RIbDcthFc7yUzGTW"
+    }
+  ]
+
+  accent = "#D97757"
+%>
+
+<div style="background:#131316; color:#f2f1ee; font-family:'Archivo',sans-serif; -webkit-font-smoothing:antialiased; min-height:100vh;">
+
+  <%# ── Nav ── %>
+  <div class="cin-container" style="max-width:1240px; width:100%; margin:0 auto; padding:30px 48px 0; display:flex; align-items:center; justify-content:space-between;">
+    <div style="display:flex; align-items:center; gap:40px;">
+      <%= link_to root_path, style: "font-weight:800; font-size:16px; letter-spacing:0.04em; color:#f2f1ee; text-decoration:none;" do %>
+        Raúl palacios
+      <% end %>
+    </div>
+    <button type="button" aria-label="Toggle dark mode"
+      style="width:36px; height:36px; border-radius:999px; border:1px solid rgba(255,255,255,0.14); background:transparent; display:flex; align-items:center; justify-content:center; cursor:pointer;"
+      data-action="dark-mode#toggleDarkMode">
+      <svg viewBox="0 0 24 24" aria-hidden="true" style="width:18px; height:18px; fill:#a3a09a; stroke:#a3a09a; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round;">
+        <path d="M17.25 16.22a6.937 6.937 0 0 1-9.47-9.47 7.451 7.451 0 1 0 9.47 9.47Z" fill="none"/>
+      </svg>
+    </button>
+  </div>
+
+  <%# ── Hero ── %>
+  <div class="cin-container cin-hero-grid" style="max-width:1240px; width:100%; margin:0 auto; padding:60px 48px 72px; display:grid; grid-template-columns:1.04fr 1fr; gap:56px; align-items:center;">
+    <div>
+      <div style="font:600 12px/1 'JetBrains Mono',monospace; letter-spacing:0.18em; color:<%= accent %>; text-transform:uppercase;">
+        <%= featured[:eyebrow] %>
+      </div>
+      <h1 style="margin:22px 0 0; font-weight:700; font-size:clamp(38px,4.4vw,62px); line-height:1.02; letter-spacing:-0.02em;">
+        <%= featured[:title] %>
+      </h1>
+      <p style="margin:24px 0 0; max-width:30em; font-size:17px; line-height:1.6; color:#b8b5ae;">
+        <%= featured[:desc] %>
+      </p>
+      <div style="margin:26px 0 0; display:flex; flex-wrap:wrap; gap:18px; align-items:center; font:500 13.5px/1 'JetBrains Mono',monospace; color:#9a978f;">
+        <span><%= featured[:category] %></span>
+        <span style="opacity:0.4;">/</span>
+        <span><%= featured[:count] %> videos</span>
+        <span style="opacity:0.4;">/</span>
+        <span><%= featured[:duration] %></span>
+        <span style="opacity:0.4;">/</span>
+        <span><%= featured[:host] %></span>
+      </div>
+      <div style="margin:34px 0 0; display:flex; gap:14px; align-items:center;">
+        <a href="<%= featured[:url] %>" target="_blank" rel="noopener noreferrer"
+          class="cin-btn-primary"
+          style="display:inline-flex; align-items:center; gap:11px; padding:14px 26px; border-radius:10px; background:<%= accent %>; color:#1a1407; font-weight:700; font-size:15px; text-decoration:none; transition:transform .2s ease, filter .2s ease;">
+          <span style="font-size:12px;">▶</span> Ver serie
+        </a>
+        <button class="cin-btn-secondary"
+          style="display:inline-flex; align-items:center; gap:9px; padding:14px 24px; border-radius:10px; border:1px solid rgba(255,255,255,0.16); background:transparent; color:#e9e7e1; font-weight:600; font-size:15px; cursor:pointer; transition:background .2s ease, border-color .2s ease; font-family:'Archivo',sans-serif;">
+          + Guardar
+        </button>
+      </div>
+    </div>
+
+    <div class="cin-hero-thumb-col cin-hero-thumb" style="position:relative; aspect-ratio:16/10; border-radius:16px; overflow:hidden; border:1px solid rgba(255,255,255,0.09); box-shadow:0 40px 80px -40px rgba(0,0,0,0.8);">
+      <div class="cin-thumb-img" style="position:absolute; inset:0; background-color:#1d1d23;">
+        <img src="<%= featured[:poster] %>" alt="<%= featured[:title] %>" style="width:100%; height:100%; object-fit:cover; display:block;" loading="eager">
+      </div>
+      <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.55)); pointer-events:none;"></div>
+      <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:74px; height:74px; border-radius:999px; background:<%= accent %>; display:flex; align-items:center; justify-content:center; box-shadow:0 12px 36px -8px rgba(0,0,0,0.6); pointer-events:none;">
+        <span style="color:#1a1407; font-size:22px; margin-left:4px;">▶</span>
+      </div>
+      <div style="position:absolute; left:20px; bottom:18px; font:600 11px/1 'JetBrains Mono',monospace; letter-spacing:0.14em; color:rgba(255,255,255,0.65); pointer-events:none;">
+        <%= featured[:label] %>
+      </div>
+      <div style="position:absolute; right:18px; top:18px; padding:6px 11px; border-radius:7px; background:rgba(0,0,0,0.55); backdrop-filter:blur(6px); font:600 11px/1 'JetBrains Mono',monospace; color:#e9e7e1; pointer-events:none;">
+        <%= featured[:duration] %>
+      </div>
+    </div>
+  </div>
+
+  <%# ── Browse grid ── %>
+  <div class="cin-container" style="max-width:1240px; width:100%; margin:0 auto; padding:14px 48px 96px;">
+    <div style="display:flex; align-items:flex-end; justify-content:space-between; padding-bottom:26px; border-bottom:1px solid rgba(255,255,255,0.09);">
+      <div>
+        <div style="font:600 12px/1 'JetBrains Mono',monospace; letter-spacing:0.16em; color:#8a877f;">CURSOS</div>
+        <h2 style="margin:14px 0 0; font-weight:700; font-size:30px; letter-spacing:-0.01em;">Explora la biblioteca</h2>
+      </div>
+      <span style="font-size:14px; color:#a3a09a;"><%= playlists.count %> cursos disponibles</span>
+    </div>
+
+    <div style="margin-top:34px; display:grid; grid-template-columns:repeat(auto-fill,minmax(310px,1fr)); gap:28px 26px;">
+      <% playlists.each do |pl| %>
+        <a href="<%= pl[:url] %>" target="_blank" rel="noopener noreferrer" class="cin-card" style="text-decoration:none; color:inherit; cursor:pointer; display:block;">
+          <div class="cin-card-wrap" style="position:relative; aspect-ratio:16/9; border-radius:12px; overflow:hidden; border:1px solid rgba(255,255,255,0.08); transition:border-color .25s ease, transform .25s ease;">
+            <div class="cin-thumb-img" style="position:absolute; inset:0; background-color:#1c1c22;">
+              <img src="<%= pl[:poster] %>" alt="<%= pl[:title] %>" style="width:100%; height:100%; object-fit:cover; display:block;" loading="lazy">
+            </div>
+            <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0) 50%, rgba(0,0,0,0.45)); pointer-events:none;"></div>
+            <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:48px; height:48px; border-radius:999px; background:rgba(15,15,18,0.55); backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,0.18); display:flex; align-items:center; justify-content:center; pointer-events:none;">
+              <span style="font-size:14px; margin-left:3px; color:#f2f1ee;">▶</span>
+            </div>
+            <div style="position:absolute; left:14px; bottom:12px; font:600 10px/1 'JetBrains Mono',monospace; letter-spacing:0.13em; color:rgba(255,255,255,0.6); pointer-events:none;">
+              <%= pl[:label] %>
+            </div>
+            <div style="position:absolute; right:12px; top:12px; padding:5px 9px; border-radius:6px; background:rgba(0,0,0,0.55); font:600 10.5px/1 'JetBrains Mono',monospace; color:#e9e7e1; pointer-events:none;">
+              <%= pl[:duration] %>
+            </div>
+          </div>
+          <div style="margin-top:15px; font-weight:600; font-size:16.5px; letter-spacing:-0.005em; color:#f2f1ee;">
+            <%= pl[:title] %>
+          </div>
+          <div style="margin-top:6px; font-size:13.5px; color:#928f87;">
+            <%= pl[:category] %> · <%= pl[:count] %> videos
+          </div>
+          <% if pl[:progress] > 0 %>
+            <div style="margin-top:13px; height:3px; border-radius:99px; background:rgba(255,255,255,0.1); overflow:hidden;">
+              <div style="height:100%; border-radius:99px; background:<%= accent %>; width:<%= pl[:progress] %>%;"></div>
+            </div>
+          <% end %>
+        </a>
+      <% end %>
+    </div>
+  </div>
+
+  <%# ── Footer ── %>
+  <div style="border-top:1px solid rgba(255,255,255,0.07);">
+    <div class="cin-container" style="max-width:1240px; margin:0 auto; padding:26px 48px; display:flex; justify-content:space-between; align-items:center; font-size:13px; color:#7c7a73;">
+      <span style="font-weight:800; letter-spacing:0.08em; color:#a3a09a;">raul palacios</span>
+      <span>Raúl Palacios · © <%= Date.today.year %></span>
+    </div>
+  </div>
+
+</div>
