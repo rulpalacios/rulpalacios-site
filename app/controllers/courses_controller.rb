@@ -1,6 +1,5 @@
 class CoursesController < ApplicationController
   def index
-    @courses = Course.where(status: :published)
   end
 
   def show
