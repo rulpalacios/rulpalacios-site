@@ -2,7 +2,7 @@
 
 # Make sure RUBY_VERSION matches the Ruby version in .ruby-version and Gemfile
 ARG RUBY_VERSION=3.2.2
-FROM ruby:$RUBY_VERSION-slim as base
+FROM ruby:$RUBY_VERSION-slim AS base
 
 LABEL fly_launch_runtime="rails"
 
@@ -15,20 +15,20 @@ ENV RAILS_ENV="production" \
     BUNDLE_WITHOUT="development:test"
 
 # Update gems and preinstall the desired version of bundler
-ARG BUNDLER_VERSION=2.4.1
+ARG BUNDLER_VERSION=2.4.10
 RUN gem update --system --no-document && \
     gem install -N bundler -v ${BUNDLER_VERSION}
 
 
 # Throw-away build stage to reduce size of final image
-FROM base as build
+FROM base AS build
 
 # Install packages needed to build gems and node modules
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y build-essential curl libpq-dev node-gyp pkg-config python-is-python3 unzip
+    apt-get install --no-install-recommends -y build-essential curl git libpq-dev node-gyp pkg-config python-is-python3 unzip
 
 # Install JavaScript dependencies
-ARG NODE_VERSION=19.2.0
+ARG NODE_VERSION=20.19.0
 ARG YARN_VERSION=1.22.19
 RUN curl -fsSL https://fnm.vercel.app/install | bash && \
     /root/.local/share/fnm/fnm install $NODE_VERSION
