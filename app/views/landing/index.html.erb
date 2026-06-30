@@ -207,28 +207,28 @@
         <div
           class="relative aspect-9/10 w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl rotate-2"
         >
-          <%= image_tag('photos/gdl.webp', sizes: '(min-width: 640px) 18rem, 11rem', width: '576', height: '576', decoding: 'async', class: 'absolute inset-0 h-full w-full object-cover', loading: 'lazy', style: 'color: transparent', alt: 'Vuelo Guadalajara') %>
+          <%= image_tag('photos/gdl.webp', sizes: '(min-width: 640px) 18rem, 11rem', width: '576', height: '576', decoding: 'async', class: 'absolute inset-0 h-full w-full object-cover', loading: 'lazy', style: 'color: transparent', alt: 'Vuelo Guadalajara', srcset: "#{asset_path('photos/gdl-320.webp')} 320w, #{asset_path('photos/gdl.webp')} 576w") %>
           
         </div>
         <div
           class="relative aspect-9/10 w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl -rotate-2"
         >
-          <%= image_tag('photos/soumaya.webp', sizes: '(min-width: 640px) 18rem, 11rem', width: '576', height: '640', decoding: 'async', fetchpriority: 'high', class: 'absolute inset-0 h-full w-full object-cover', style: 'color: transparent', alt: 'Museo Soumaya') %>  
+          <%= image_tag('photos/soumaya.webp', sizes: '(min-width: 640px) 18rem, 11rem', width: '576', height: '640', decoding: 'async', fetchpriority: 'high', class: 'absolute inset-0 h-full w-full object-cover', style: 'color: transparent', alt: 'Museo Soumaya', srcset: "#{asset_path('photos/soumaya-320.webp')} 320w, #{asset_path('photos/soumaya.webp')} 576w") %>  
         </div>
         <div
           class="relative aspect-9/10 w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl rotate-2"
         >
-          <%= image_tag('photos/santiago-chile.webp', sizes: '(min-width: 640px) 18rem, 11rem', width: '576', height: '324', decoding: 'async', class: 'absolute inset-0 h-full w-full object-cover', loading: 'lazy', style: 'color: transparent', alt: 'Santiago de Chile') %>
+          <%= image_tag('photos/santiago-chile.webp', sizes: '(min-width: 640px) 18rem, 11rem', width: '576', height: '324', decoding: 'async', class: 'absolute inset-0 h-full w-full object-cover', loading: 'lazy', style: 'color: transparent', alt: 'Santiago de Chile', srcset: "#{asset_path('photos/santiago-chile-320.webp')} 320w, #{asset_path('photos/santiago-chile.webp')} 576w") %>
         </div>
         <div
           class="relative aspect-9/10 w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl rotate-2"
         >
-          <%= image_tag('photos/basilica.webp', sizes: '(min-width: 640px) 18rem, 11rem', width: '576', height: '768', decoding: 'async', class: 'absolute inset-0 h-full w-full object-cover', loading: 'lazy', style: 'color: transparent', alt: 'Basilica de Guadalupe') %>
+          <%= image_tag('photos/basilica.webp', sizes: '(min-width: 640px) 18rem, 11rem', width: '576', height: '768', decoding: 'async', class: 'absolute inset-0 h-full w-full object-cover', loading: 'lazy', style: 'color: transparent', alt: 'Basilica de Guadalupe', srcset: "#{asset_path('photos/basilica-320.webp')} 320w, #{asset_path('photos/basilica.webp')} 576w") %>
         </div>
         <div
           class="relative aspect-9/10 w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl -rotate-2"
         >
-          <%= image_tag('photos/medusas.webp', sizes: '(min-width: 640px) 18rem, 11rem', width: '576', height: '576', decoding: 'async', class: 'absolute inset-0 h-full w-full object-cover', loading: 'lazy', style: 'color: transparent', alt: 'Medusas') %>
+          <%= image_tag('photos/medusas.webp', sizes: '(min-width: 640px) 18rem, 11rem', width: '576', height: '576', decoding: 'async', class: 'absolute inset-0 h-full w-full object-cover', loading: 'lazy', style: 'color: transparent', alt: 'Medusas', srcset: "#{asset_path('photos/medusas-320.webp')} 320w, #{asset_path('photos/medusas.webp')} 576w") %>
         </div>
       </div>
     </div>
@@ -259,7 +259,7 @@
                     >
                   </h2>
                   <time
-                    class="relative z-10 order-first mb-3 flex items-center text-sm text-zinc-400 dark:text-zinc-500 pl-3.5"
+                    class="relative z-10 order-first mb-3 flex items-center text-sm text-zinc-400 dark:text-zinc-400 pl-3.5"
                     datetime="2022-09-05"
                     ><span
                       class="absolute inset-y-0 left-0 flex items-center"
@@ -346,7 +346,7 @@
                         </dd>
                         <dt class="sr-only">Date</dt>
                         <dd
-                          class="ml-auto text-xs text-zinc-400 dark:text-zinc-500"
+                          class="ml-auto text-xs text-zinc-400 dark:text-zinc-400"
                           aria-label="2020 until Present"
                         >
                           <time datetime="2024">2024</time>
@@ -376,7 +376,7 @@
                         </dd>
                         <dt class="sr-only">Date</dt>
                         <dd
-                          class="ml-auto text-xs text-zinc-400 dark:text-zinc-500"
+                          class="ml-auto text-xs text-zinc-400 dark:text-zinc-400"
                           aria-label="2020 until Present"
                         >
                           <time datetime="2020">2020</time>
@@ -406,7 +406,7 @@
                         </dd>
                         <dt class="sr-only">Date</dt>
                         <dd
-                          class="ml-auto text-xs text-zinc-400 dark:text-zinc-500"
+                          class="ml-auto text-xs text-zinc-400 dark:text-zinc-400"
                           aria-label="2021 until 2022"
                         >
                           <time datetime="2021">2021</time>
@@ -436,7 +436,7 @@
                         </dd>
                         <dt class="sr-only">Date</dt>
                         <dd
-                          class="ml-auto text-xs text-zinc-400 dark:text-zinc-500"
+                          class="ml-auto text-xs text-zinc-400 dark:text-zinc-400"
                           aria-label="2019 until 2020"
                         >
                           <time datetime="2019">2019</time>
@@ -466,7 +466,7 @@
                         </dd>
                         <dt class="sr-only">Date</dt>
                         <dd
-                          class="ml-auto text-xs text-zinc-400 dark:text-zinc-500"
+                          class="ml-auto text-xs text-zinc-400 dark:text-zinc-400"
                           aria-label="2016 until 2018"
                         >
                           <time datetime="2016">2016</time>
@@ -508,7 +508,7 @@
                   <%= link_to 'Courses', courses_path, class: 'relative block px-3 py-2 transition hover:text-brand-500 dark:hover:text-brand-400' %>
                   
                 </div>
-                <p class="text-sm text-zinc-400 dark:text-zinc-500">
+                <p class="text-sm text-zinc-400 dark:text-zinc-400">
                   Raúl Palacios · © <%= Date.today.year %>
                 </p>
               </div>
