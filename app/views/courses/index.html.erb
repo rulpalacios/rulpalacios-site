@@ -21,19 +21,29 @@
 
 <%
   featured = {
-    eyebrow:  "Rails",
-    label:    "RAILS FUNDAMENTAL",
-    title:    "Rails Fundamental",
-    desc:     "Aprende Ruby on Rails desde cero: MVC, ActiveRecord, rutas, autenticación y despliegue de aplicaciones web completas.",
-    category: "Backend",
-    count:    18,
-    duration: "4h 30m",
+    eyebrow:  "IA",
+    label:    "AGENT SKILLS",
+    title:    "Agent Skills",
+    desc:     "Aprende a crear y usar Agent Skills para extender las capacidades de tus agentes de IA y automatizar flujos de trabajo complejos.",
+    category: "IA",
+    count:    2,
+    duration: "13m",
     host:     "Raúl Palacios",
-    poster:   "https://i.ytimg.com/vi/6PwIA6Ac9sU/maxresdefault.jpg",
-    url:      "https://www.youtube.com/playlist?list=PLIddmSRJEJ0uhR17K9V8r6ghnIprfMm80"
+    poster:   "https://i.ytimg.com/vi/gCQXn_6K5Jo/maxresdefault.jpg",
+    url:      "https://www.youtube.com/playlist?list=PLLrfoWjQe3j4"
   }
 
   playlists = [
+    {
+      title:    "Rails Fundamental",
+      category: "Backend",
+      count:    18,
+      duration: "4h 30m",
+      label:    "RAILS FUNDAMENTAL",
+      poster:   "https://i.ytimg.com/vi/6PwIA6Ac9sU/maxresdefault.jpg",
+      progress: 0,
+      url:      "https://www.youtube.com/playlist?list=PLIddmSRJEJ0uhR17K9V8r6ghnIprfMm80"
+    },
     {
       title:    "Cursos de ReactJS",
       category: "Frontend",
@@ -122,7 +132,7 @@
         <a href="<%= featured[:url] %>" target="_blank" rel="noopener noreferrer"
           class="cin-btn-primary"
           style="display:inline-flex; align-items:center; gap:11px; padding:14px 26px; border-radius:10px; background:<%= accent %>; color:#1a1407; font-weight:700; font-size:15px; text-decoration:none; transition:transform .2s ease, filter .2s ease;">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" style="width:12px;height:12px;flex-shrink:0;"><path d="M3 2.75A.75.75 0 0 1 4.107 2.1l9.5 5.25a.75.75 0 0 1 0 1.3l-9.5 5.25A.75.75 0 0 1 3 13.25v-10.5Z"/></svg> Ver serie
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" style="width:12px;height:12px;flex-shrink:0;"><path d="M3 2.75A.75.75 0 0 1 4.107 2.1l9.5 5.25a.75.75 0 0 1 0 1.3l-9.5 5.25A.75.75 0 0 1 3 13.25v-10.5Z"/></svg> View
         </a>
       </div>
     </div>
